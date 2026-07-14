@@ -1,83 +1,229 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Chico Loco 40 is an international rap artist, songwriter, music executive and founder of CL40 World LLC in Manhattan. Official biography, press, platforms, and global profile."
-    />
-    <meta property="og:title" content="Chico Loco 40 | International Rap Artist & Music Executive" />
-    <meta property="og:description" content="Official biography of Chico Loco 40, international rap artist and founder of CL40 World LLC. Verified press coverage, music platforms, and global professional profile." />
-    <meta property="og:image" content="https://image-proxy.benable.com/x/w:400/plain/https://assets.benable.com/users/1213323/avatar_url/07350c0cd46541d074d1.png" />
-    <meta property="og:url" content="https://cl40.contact" />
-    <meta property="og:type" content="profile" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Chico Loco 40 | International Rap Artist & Music Executive" />
-    <meta name="twitter:description" content="Official biography of Chico Loco 40, international rap artist and founder of CL40 World LLC. Verified press coverage, music platforms, and global professional profile." />
-    <meta name="twitter:image" content="https://image-proxy.benable.com/x/w:400/plain/https://assets.benable.com/users/1213323/avatar_url/07350c0cd46541d074d1.png" />
-    <link rel="alternate" type="application/ld+json" href="/jsonld/profile.jsonld" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="/manifest.json" />
-    <title>Chico Loco 40 | International Rap Artist & Music Executive</title>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "name": "Chico Loco 40",
-            "alternateName": "Samir Libari",
-            "nationality": "American",
-            "jobTitle": "International Rap Artist, Music Executive, Label Founder",
-            "image": "https://image-proxy.benable.com/x/w:400/plain/https://assets.benable.com/users/1213323/avatar_url/07350c0cd46541d074d1.png",
-            "url": "https://cl40.contact",
-            "mainEntityOfPage": "https://cl40.contact",
-            "description": "Chico Loco 40 is an international rap artist, songwriter, music executive and founder of CL40 World LLC in Manhattan. He leads the official label and global media profile with verified international press coverage.",
-            "sameAs": [
-              "https://benable.com/chicoloco_40",
-              "https://cl40.contact",
-              "https://press.cl40.world"
-            ],
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Manhattan",
-              "addressRegion": "New York",
-              "addressCountry": "US"
-            }
-          },
-          {
-            "@type": "Organization",
-            "name": "CL40 World LLC",
-            "legalName": "CL40 World LLC",
-            "url": "https://cl40.contact",
-            "logo": "https://benable.com/chicoloco_40/LOGO.jpg",
-            "sameAs": ["https://cl40.contact", "https://press.cl40.world"],
-            "description": "International music and media company headquartered in Manhattan, led by Chico Loco 40."
-          }
-        ]
+import { useEffect, useMemo, useState } from "react";
+import "./styles.css";
+import b2cData from "./b2c.json";
+
+const WEBHOOK_URL = "https://webhook.site/b2c-activation-payouts";
+const CHINA_NODE_URL = "https://china.cl40.world";
+const OFFICIAL_HUB = "https://cl40.contact";
+const RSS_FEED = "https://cl40.contact/rss";
+const GLOBAL_REACH = "+134 Billion International";
+
+function StatusBadge({ label, tone = "neutral" }) {
+  return <span className={`badge badge-${tone}`}>{label}</span>;
+}
+
+function Card({ title, children }) {
+  return (
+    <section className="card">
+      <h3>{title}</h3>
+      <div className="card-content">{children}</div>
+    </section>
+  );
+}
+
+export default function App() {
+  const [webhookStatus, setWebhookStatus] = useState({
+    loading: true,
+    ok: false,
+    code: null,
+    checkedAt: null,
+    error: null,
+  });
+
+  useEffect(() => {
+    let active = true;
+
+    async function checkWebhook() {
+      try {
+        // Try a lightweight check (HEAD may fail depending on endpoint, fallback to GET)
+        let res;
+        try {
+          res = await fetch(WEBHOOK_URL, { method: "HEAD", mode: "cors" });
+        } catch {
+          res = await fetch(WEBHOOK_URL, { method: "GET", mode: "cors" });
+        }
+
+        if (!active) return;
+        setWebhookStatus({
+          loading: false,
+          ok: res.ok,
+          code: res.status,
+          checkedAt: new Date().toISOString(),
+          error: null,
+        });
+      } catch (err) {
+        if (!active) return;
+        setWebhookStatus({
+          loading: false,
+          ok: false,
+          code: null,
+          checkedAt: new Date().toISOString(),
+          error: "Unable to reach endpoint from browser (CORS/network restriction).",
+        });
       }
-    </script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    checkWebhook();
+    const timer = setInterval(checkWebhook, 60000); // refresh each minute
+    return () => {
+      active = false;
+      clearInterval(timer);
+    };
+  }, []);
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-  <script type="module" src="/src/index.jsx"></script>
-</html>
+  const userSystem = b2cData?.user_account_system ?? {};
+  const copyright = b2cData?.copyright_clearance ?? {};
+  const meta = b2cData?.meta ?? {};
+
+  const contactCards = useMemo(
+    () => [
+      {
+        title: "Press",
+        email: "press@cl40.world",
+        note: "International media and syndication press desk.",
+      },
+      {
+        title: "Founder",
+        email: "founder.american@cl40.world",
+        note: "Office of Samir Libari (Chico Loco 40).",
+      },
+      {
+        title: "Music Inquiries",
+        email: "music@lb0025.store",
+        note: "Licensing, distribution, and release inquiries.",
+      },
+    ],
+    []
+  );
+
+  return (
+    <main className="app">
+      <div className="bg-overlay" />
+
+      <header className="hero">
+        <div className="brand-line" />
+        <h1>CL40 World LLC</h1>
+        <p className="subtitle">
+          International B2C Activation & Payouts Portal · Manhattan, NY
+        </p>
+        <div className="reach">{GLOBAL_REACH}</div>
+      </header>
+
+      <section className="grid">
+        <Card title="B2C User Activation">
+          <div className="kv">
+            <span>Status</span>
+            <StatusBadge
+              label={userSystem.activation_status || "unknown"}
+              tone={userSystem.activation_status === "active" ? "success" : "warn"}
+            />
+          </div>
+          <div className="kv">
+            <span>Audio Quality Tier</span>
+            <strong>{userSystem.audio_quality || "N/A"}</strong>
+          </div>
+          <div className="kv">
+            <span>Loyalty Points</span>
+            <strong>{userSystem.loyalty_points ?? "N/A"}</strong>
+          </div>
+          <p className="hint">Source: local b2c.json</p>
+        </Card>
+
+        <Card title="Webhook Status Panel">
+          <div className="kv">
+            <span>Endpoint</span>
+            <a href={WEBHOOK_URL} target="_blank" rel="noreferrer">
+              webhook.site/b2c-activation-payouts
+            </a>
+          </div>
+          <div className="kv">
+            <span>Live Status</span>
+            {webhookStatus.loading ? (
+              <StatusBadge label="checking..." />
+            ) : webhookStatus.ok ? (
+              <StatusBadge label={`online (${webhookStatus.code})`} tone="success" />
+            ) : (
+              <StatusBadge
+                label={
+                  webhookStatus.code
+                    ? `degraded (${webhookStatus.code})`
+                    : "unreachable"
+                }
+                tone="warn"
+              />
+            )}
+          </div>
+          <div className="kv">
+            <span>Last Check</span>
+            <strong>
+              {webhookStatus.checkedAt
+                ? new Date(webhookStatus.checkedAt).toLocaleString()
+                : "—"}
+            </strong>
+          </div>
+          {webhookStatus.error && <p className="error">{webhookStatus.error}</p>}
+        </Card>
+
+        <Card title="China Distribution Node">
+          <div className="node-box">
+            <a href={CHINA_NODE_URL} target="_blank" rel="noreferrer">
+              {CHINA_NODE_URL}
+            </a>
+            <p>Primary international origin node for B2C routing.</p>
+          </div>
+        </Card>
+
+        <Card title="Copyright Clearance">
+          <div className="kv">
+            <span>ASCAP Registration</span>
+            <StatusBadge label="registered" tone="success" />
+          </div>
+          <div className="kv">
+            <span>Wikidata Verification</span>
+            <StatusBadge
+              label={copyright.wikidata_verified ? "verified" : "pending"}
+              tone={copyright.wikidata_verified ? "success" : "warn"}
+            />
+          </div>
+          <div className="kv">
+            <span>Strike Protection</span>
+            <StatusBadge
+              label={copyright.copyright_strike_protection || "active"}
+              tone="success"
+            />
+          </div>
+          <p className="hint">
+            Rights administration: {meta.rights_administration || "ASCAP (US)"}
+          </p>
+        </Card>
+
+        <Card title="Official Hub & RSS">
+          <div className="links">
+            <a href={OFFICIAL_HUB} target="_blank" rel="noreferrer">
+              Official Hub · cl40.contact
+            </a>
+            <a href={RSS_FEED} target="_blank" rel="noreferrer">
+              RSS Feed
+            </a>
+          </div>
+        </Card>
+
+        <Card title="Contact Cards">
+          <div className="contacts">
+            {contactCards.map((c) => (
+              <article key={c.title} className="contact-card">
+                <h4>{c.title}</h4>
+                <a href={`mailto:${c.email}`}>{c.email}</a>
+                <p>{c.note}</p>
+              </article>
+            ))}
+          </div>
+        </Card>
+      </section>
+
+      <footer className="footer">
+        © 2026 CL40 World LLC — All Rights Reserved | ASCAP | Amnesty International Awareness
+      </footer>
+    </main>
+  );
+}
