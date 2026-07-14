@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chico Loco 40 | CL40 World LLC</title>
+    <meta
+      name="description"
+      content="Official international artist and label website for Chico Loco 40 and CL40 World LLC, built for press visibility, verified metadata, releases, rights infrastructure, and executive presentation."
+    />
+    <meta
+      name="keywords"
+      content="Chico Loco 40, CL40 World LLC, international artist, official label, press kit, release metadata, rights infrastructure"
+    />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Chico Loco 40 | CL40 World LLC" />
+    <meta
+      property="og:description"
+      content="International artist and label platform with official positioning, structured metadata, release visibility, and rights-ready presentation."
+    />
+    <meta property="og:site_name" content="Chico Loco 40 | CL40 World LLC" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chico Loco 40 | CL40 World LLC" />
+    <meta
+      name="twitter:description"
+      content="Official international artist and label website for press discovery, releases, metadata, and rights infrastructure."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "MusicGroup",
+            "@id": "#artist",
+            "name": "Chico Loco 40",
+            "description": "International recording artist positioned for press visibility, official releases, and verified metadata presentation.",
+            "genre": ["Hip-Hop", "Latin", "Global Urban"],
+            "url": "https://github.com/chicoloco40/chico-loco-40-international-cl40-world-global-press-cl40-world-official"
+          },
+          {
+            "@type": "Organization",
+            "@id": "#label",
+            "name": "CL40 World LLC",
+            "legalName": "CL40 World LLC",
+            "description": "Independent rights, release, and brand infrastructure supporting the international positioning of Chico Loco 40.",
+            "url": "https://github.com/chicoloco40/chico-loco-40-international-cl40-world-global-press-cl40-world-official"
+          },
+          {
+            "@type": "WebSite",
+            "name": "Chico Loco 40 | CL40 World LLC",
+            "url": "https://github.com/chicoloco40/chico-loco-40-international-cl40-world-global-press-cl40-world-official",
+            "about": [{ "@id": "#artist" }, { "@id": "#label" }],
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07111f;
+        --panel: rgba(12, 24, 40, 0.88);
+        --panel-alt: rgba(16, 31, 51, 0.94);
+        --line: rgba(255, 255, 255, 0.08);
+        --text: #eef4ff;
+        --muted: #aab9cf;
+        --accent: #4dd2ff;
+        --accent-soft: rgba(77, 210, 255, 0.12);
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(77, 210, 255, 0.12), transparent 34%),
+          linear-gradient(180deg, #09111d, #050a12 62%, #04070d);
+        color: var(--text);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .eyebrow,
+      .section-label {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-size: 0.76rem;
+        color: var(--accent);
+      }
+
+      header {
+        padding: 24px 0;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      nav a {
+        text-decoration: none;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        padding: 40px 0 24px;
+      }
+
+      .hero-card,
+      .panel,
+      .stat,
+      .release-card,
+      .link-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-card {
+        padding: 34px;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 7vw, 5rem);
+        line-height: 0.96;
+        margin: 14px 0 18px;
+      }
+
+      .hero p,
+      .panel p,
+      .release-card p,
+      .link-card p,
+      footer p {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 20px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: #041019;
+      }
+
+      .button.secondary {
+        background: var(--accent-soft);
+        border: 1px solid rgba(77, 210, 255, 0.18);
+      }
+
+      .hero-meta {
+        display: grid;
+        gap: 16px;
+      }
+
+      .panel {
+        padding: 28px;
+        background: var(--panel-alt);
+      }
+
+      .stats,
+      .releases,
+      .links,
+      .rights-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin: 24px 0 34px;
+      }
+
+      .stat {
+        padding: 22px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 8px;
+      }
+
+      section {
+        padding: 18px 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: end;
+        margin-bottom: 18px;
+      }
+
+      .releases,
+      .links,
+      .rights-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .release-card,
+      .link-card {
+        padding: 24px;
+      }
+
+      .release-card span,
+      .link-card span {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 0.86rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+      }
+
+      ul {
+        padding-left: 18px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .link-card a {
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      footer {
+        padding: 30px 0 60px;
+      }
+
+      .footer-bar {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        border-top: 1px solid var(--line);
+        padding-top: 20px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 920px) {
+        .hero,
+        .stats,
+        .releases,
+        .links,
+        .rights-grid,
+        .footer-bar {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .topbar,
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="shell">
+      <div class="topbar">
+        <div>
+          <div class="eyebrow">Official International Artist Platform</div>
+          <div class="brand">Chico Loco 40 / CL40 World LLC</div>
+        </div>
+        <nav aria-label="Primary">
+          <a href="#press">Press</a>
+          <a href="#releases">Releases</a>
+          <a href="#stats">Stats</a>
+          <a href="#rights">Rights</a>
+          <a href="#official-links">Official Links</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero" id="press">
+        <article class="hero-card">
+          <div class="eyebrow">International Artist Positioning</div>
+          <h1>Chico Loco 40</h1>
+          <p>
+            Official international artist and label destination presenting Chico Loco 40 and CL40 World LLC with a clean,
+            executive-ready profile for press, partners, distributors, and rights stakeholders.
+          </p>
+          <p>
+            The platform is designed to centralize release visibility, verified artist metadata, catalog positioning, and
+            rights infrastructure in one authoritative source.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#official-links">View Official Links</a>
+            <a class="button secondary" href="#rights">Rights Infrastructure</a>
+          </div>
+        </article>
+
+        <aside class="hero-meta">
+          <section class="panel">
+            <div class="section-label">Press Profile</div>
+            <h2>Executive Snapshot</h2>
+            <p>
+              International-facing artist brand, label-backed release strategy, rights-ready metadata workflows, and a
+              presentation built for discovery across editorial, business, and platform environments.
+            </p>
+          </section>
+          <section class="panel">
+            <div class="section-label">Official Source</div>
+            <h2>Single Point of Reference</h2>
+            <p>
+              This website functions as the official presentation layer for artist positioning, release overview, metadata
+              integrity, and business-facing visibility.
+            </p>
+          </section>
+        </aside>
+      </section>
+
+      <section id="stats">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Stats</div>
+            <h2>Professional signals at a glance</h2>
+          </div>
+          <p>Core facts presented for editorial review, stakeholder diligence, and international platform readiness.</p>
+        </div>
+        <div class="stats">
+          <article class="stat">
+            <strong>2</strong>
+            <p>Core entities represented: Chico Loco 40 and CL40 World LLC.</p>
+          </article>
+          <article class="stat">
+            <strong>24/7</strong>
+            <p>Always-available official destination for press discovery and business review.</p>
+          </article>
+          <article class="stat">
+            <strong>1</strong>
+            <p>Central source for verified positioning, releases, and rights visibility.</p>
+          </article>
+          <article class="stat">
+            <strong>Global</strong>
+            <p>International-only artist framing across profile, metadata, and label presentation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="releases">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Releases</div>
+            <h2>Release visibility and catalog readiness</h2>
+          </div>
+          <p>Press and business stakeholders can review how the catalog is positioned, documented, and surfaced.</p>
+        </div>
+        <div class="releases">
+          <article class="release-card">
+            <span>Catalog Profile</span>
+            <h3>Official Release Registry</h3>
+            <p>
+              A dedicated presentation layer for official releases, enabling clean discovery, consistent artist naming,
+              and authoritative catalog association.
+            </p>
+          </article>
+          <article class="release-card">
+            <span>Metadata Control</span>
+            <h3>Structured Release Data</h3>
+            <p>
+              Artist and label information is positioned for platform consistency through standardized naming, release
+              descriptions, and machine-readable metadata.
+            </p>
+          </article>
+          <article class="release-card">
+            <span>Market Presence</span>
+            <h3>International Presentation</h3>
+            <p>
+              Every release touchpoint is framed for global visibility with an emphasis on professional press value,
+              discoverability, and executive clarity.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="rights">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Rights Infrastructure</div>
+            <h2>Built for ownership, administration, and long-term scale</h2>
+          </div>
+          <p>Clear rights language supports label operations, platform compliance, and partner diligence.</p>
+        </div>
+        <div class="rights-grid">
+          <section class="panel">
+            <h3>Master Rights</h3>
+            <ul>
+              <li>Official label-side ownership presentation through CL40 World LLC.</li>
+              <li>Release documentation designed for distribution and catalog governance workflows.</li>
+              <li>Clear source-of-truth positioning for future rights verification.</li>
+            </ul>
+          </section>
+          <section class="panel">
+            <h3>Metadata Standards</h3>
+            <ul>
+              <li>Structured metadata foundation for artist naming, label attribution, and catalog consistency.</li>
+              <li>Press-facing schema markup to improve machine readability and discovery.</li>
+              <li>Executive presentation optimized for trust, clarity, and platform legibility.</li>
+            </ul>
+          </section>
+          <section class="panel">
+            <h3>Administration Readiness</h3>
+            <ul>
+              <li>Rights-ready language for publishing, neighboring rights, and release operations.</li>
+              <li>Professional format suitable for partner review, intake, and platform verification flows.</li>
+              <li>Designed to scale with official links, release data, and catalog updates.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section id="official-links">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Official Links</div>
+            <h2>Authoritative destinations</h2>
+          </div>
+          <p>Direct, official references help consolidate brand trust and provide a single verifiable source.</p>
+        </div>
+        <div class="links">
+          <article class="link-card">
+            <span>Official Repository</span>
+            <h3>Website Source</h3>
+            <p>Primary official repository containing the public-facing international artist and label website.</p>
+            <a href="https://github.com/chicoloco40/chico-loco-40-international-cl40-world-global-press-cl40-world-official">
+              github.com/chicoloco40/...
+            </a>
+          </article>
+          <article class="link-card">
+            <span>Artist Identity</span>
+            <h3>Chico Loco 40</h3>
+            <p>Central artist identity reference used across press positioning, release metadata, and label presentation.</p>
+            <a href="#press">View artist profile section</a>
+          </article>
+          <article class="link-card">
+            <span>Label Entity</span>
+            <h3>CL40 World LLC</h3>
+            <p>Official label and business entity reference supporting release visibility and rights infrastructure.</p>
+            <a href="#rights">View rights infrastructure section</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell">
+      <div class="footer-bar">
+        <p>Chico Loco 40 · Official international artist positioning</p>
+        <p>CL40 World LLC · Structured metadata, releases, rights infrastructure</p>
+      </div>
+    </footer>
+  </body>
+</html>
