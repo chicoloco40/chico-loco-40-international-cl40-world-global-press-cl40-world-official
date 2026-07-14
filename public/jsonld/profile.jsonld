@@ -1,0 +1,76 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Chico Loco 40",
+      "alternateName": "Samir Libari",
+      "nationality": "American",
+      "jobTitle": "International Rap Artist, Label Founder",
+      "description": "Chico Loco 40 is an international rap artist, songwriter, producer, and founder of CL40 World LLC based in Manhattan. Verified press and Google News coverage support the artist's global professional profile.",
+      "url": "https://cl40.contact",
+      "mainEntityOfPage": "https://cl40.contact",
+      "image": [
+        "https://image-proxy.benable.com/x/w:200/plain/https://assets.benable.com/users/1213323/avatar_url/07350c0cd46541d074d1.png",
+        "https://assets.benable.com/group_bases/e969e1e5-e75f-45d1-ab72-48e114d52f64/minified_cover_image/306e611ac6140b2b53b2.png",
+        "https://assets.benable.com/group_bases/a27a5cf7-d569-4980-b598-bddf794e101f/miniified_cover_image/033f2055d957355cb7e0.png"
+      ],
+      "sameAs": [
+        "https://benable.com/chicoloco_40",
+        "https://mumubl.com/post/chico-loco-40-samir-libari-american-rapper-from-manhattan-drops-new-album-dead-inside/",
+        "https://www.issuewire.com/american-moroccan-rapper-chico-loco-40-solidifies-status-in-the-united-states-rap-elite-1869859359522895",
+        "https://www.issuewire.com/cl40-world-llc-syndicate-establishes-global-portal-infrastructure-with-authorized-access-codes-1866502043554506"
+      ],
+      "subjectOf": [
+        {
+          "@type": "NewsArticle",
+          "headline": "International rap artist Chico Loco 40 solidifies status as music visionary and label founder",
+          "url": "https://www.issuewire.com/american-moroccan-rapper-chico-loco-40-solidifies-status-in-the-united-states-rap-elite-1869859359522895",
+          "publisher": {
+            "@type": "Organization",
+            "name": "IssueWire"
+          }
+        },
+        {
+          "@type": "NewsArticle",
+          "headline": "CL40 World LLC establishes global portal infrastructure with authorized access codes",
+          "url": "https://www.issuewire.com/cl40-world-llc-syndicate-establishes-global-portal-infrastructure-with-authorized-access-codes-1866502043554506",
+          "publisher": {
+            "@type": "Organization",
+            "name": "IssueWire"
+          }
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Manhattan",
+        "addressRegion": "New York",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "Organization",
+      "name": "CL40 World LLC",
+      "legalName": "CL40 World LLC",
+      "url": "https://cl40.contact",
+      "logo": "https://benable.com/chicoloco_40/LOGO.jpg",
+      "sameAs": [
+        "https://cl40.contact",
+        "https://press.cl40.world"
+      ],
+      "description": "International music and media company headquartered in Manhattan, supporting Chico Loco 40's global entertainment brand."
+    },
+    {
+      "@type": "MusicGroup",
+      "name": "Chico Loco 40",
+      "url": "https://spotify.cl40.world",
+      "track": [
+        {
+          "@type": "MusicRecording",
+          "name": "Dead Inside",
+          "url": "https://clip.cl40.world"
+        }
+      ]
+    }
+  ]
+}
